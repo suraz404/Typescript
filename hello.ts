@@ -46,7 +46,7 @@ const person: { firstName: string; age: number } = {
   age: 34,
 };
 
-console.log(`hi ${person.firstName} , Your age is ${person.age}`);
+// console.log(`hi ${person.firstName} , Your age is ${person.age}`);
 
 //return object in a function
 function surazKing(): { lastName: string; rolno: number } {
@@ -55,3 +55,14 @@ function surazKing(): { lastName: string; rolno: number } {
     rolno: 45,
   };
 }
+
+//tuple
+const myTuple: [string, number] = ["hello", 42];
+// console.log(myTuple[1]);
+
+//enums
+enum WeatherConditons {
+  Sunny = "sunny",
+  Cloudy = "cloudy",
+}
+console.log(WeatherConditons.Cloudy);
