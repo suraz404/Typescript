@@ -65,4 +65,72 @@ enum WeatherConditons {
   Sunny = "sunny",
   Cloudy = "cloudy",
 }
-console.log(WeatherConditons.Cloudy);
+// console.log(WeatherConditons.Cloudy);
+
+//interfaces
+
+interface Person {
+  firstName: string;
+  lastname: string;
+  age: number;
+}
+const customer: Person = {
+  firstName: "Suraz",
+  lastname: "Agrahari",
+  age: 34,
+};
+interface MathOperation {
+  (x: number, y: number): number;
+}
+const adder: MathOperation = (a, b) => a + b;
+
+// console.log(adder(5, 3));
+
+interface PersonDetails {
+  firstName: string;
+  lastName: string;
+  sayHello(): void;
+}
+
+function greet(person: PersonDetails) {
+  console.log(`Hello ${person.firstName} ${person.lastName}`);
+  person.sayHello();
+}
+
+const john: PersonDetails = {
+  firstName: "John",
+  lastName: "Doe",
+  sayHello() {
+    console.log("Hi there");
+  },
+};
+
+// greet(john);
+//Generic
+
+function printInfo<T>(x: T, y: T): [T, T] {
+  return [x, y];
+}
+interface Dog {
+  name: string;
+  breed: string;
+}
+
+printInfo<Dog>(
+  { name: "Buddy", breed: "Lavandor" },
+  { name: "Charlie", breed: "Labrador" },
+);
+
+// printInfo<string>("Hello"); //hello
+// printInfo<number>(20); //20;
+
+function getRandomKeyPair<T>(obj: { [key: string]: T }): {
+  key: string;
+  value: T;
+} {
+  const keys = Object.keys(obj);
+  const randKeys = keys[Math.floor(Math.random() * keys.length)];
+  return { key: randKeys, value: obj[randKeys] };
+}
+const stringObj = { a: "apple", b: "ball", c: "cat" };
+console.log(getRandomKeyPair<string>(stringObj));
