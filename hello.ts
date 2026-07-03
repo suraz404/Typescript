@@ -134,3 +134,22 @@ function getRandomKeyPair<T>(obj: { [key: string]: T }): {
 }
 const stringObj = { a: "apple", b: "ball", c: "cat" };
 console.log(getRandomKeyPair<string>(stringObj));
+
+function filterArray<T>(array: T[], condition: (item: T) => boolean): T[] {
+  return array.filter((item) => condition(item));
+}
+
+const numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(filterArray<number>(numberArray, (num) => num % 2 === 0));
+
+interface Fruit {
+  name: string;
+  color: string;
+}
+const Fruits: Fruit[] = [
+  { name: "Apple", color: "Red" },
+  { name: "Banana", color: "Yellow" },
+  { name: "Cherry", color: "Red" },
+];
+
+console.log(filterArray<Fruit>(Fruits, (fruit) => fruit.color === "Red"));
