@@ -152,4 +152,7 @@ const Fruits: Fruit[] = [
   { name: "Cherry", color: "Red" },
 ];
 
-console.log(filterArray<Fruit>(Fruits, (fruit) => fruit.color === "Red"));
+// console.log(filterArray<Fruit>(Fruits, (fruit) => fruit.color === "Red"));
+
+//Generic Function with multiple types
+// <T,U>
