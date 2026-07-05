@@ -24,6 +24,7 @@ export const App = () => {
         onClick={() => alert("You clicked")}
 
       /> */}
+      <UserInfo />
       <UserInfo user={user} />
       <AdminInfoM admin={admin} />
     </div>
